@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
             rollDice(R.id.textView2,R.id.imageView2)
         }
 
+        val goToButton: Button = findViewById(R.id.buttonToCal)
+        goToButton.setOnClickListener {
+            val intent:Intent = Intent(this, CalculatorActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun rollDice(idTextView:Int,idImgView:Int) {
@@ -56,5 +62,9 @@ class MainActivity : AppCompatActivity() {
 
         // Update the content description
         resultImgView.contentDescription = diceRoll.toString()
+    }
+
+    private fun goToCalculator () {
+
     }
 }
